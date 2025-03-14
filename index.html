@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echo Cavern</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="bg-gray-900 min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Game Container -->
+    <div id="gameContainer" class="relative w-[900px] h-[600px]">
+        <!-- Game Canvas -->
+        <canvas id="gameCanvas" class="absolute top-0 left-0 w-full h-full bg-gray-800 rounded-lg shadow-2xl"></canvas>
+
+        <!-- Start Screen Overlay -->
+        <div id="startScreen" class="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center bg-gray-900 bg-opacity-90 text-white rounded-lg">
+            <h1 class="text-6xl font-bold mb-8 font-orbitron text-purple-500 tracking-wider">ECHO CAVERN</h1>
+            <p class="text-lg mb-8 font-press-start text-gray-300">A Sound-Based Roguelike Adventure</p>
+            <button id="startButton" class="px-8 py-4 bg-purple-600 hover:bg-purple-700 rounded-lg text-xl font-orbitron transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-play mr-2"></i> Start Game
+            </button>
+        </div>
+
+        <!-- Game UI Overlay -->
+        <div id="gameUI" class="absolute top-0 left-0 w-full h-full hidden">
+            <!-- Health Display -->
+            <div class="absolute top-4 left-4 flex space-x-2">
+                <i class="fas fa-gem text-2xl text-purple-500"></i>
+                <i class="fas fa-gem text-2xl text-purple-500"></i>
+                <i class="fas fa-gem text-2xl text-purple-500"></i>
+                <i class="fas fa-gem text-2xl text-purple-500"></i>
+                <i class="fas fa-gem text-2xl text-purple-500"></i>
+            </div>
+            
+            <!-- Crystal Count -->
+            <div class="absolute top-4 right-4 flex items-center space-x-2">
+                <span class="text-xl text-white font-orbitron">0</span>
+                <i class="fas fa-diamond text-2xl text-yellow-400"></i>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="gameOverScreen" class="absolute top-0 left-0 w-full h-full hidden flex-col items-center justify-center bg-gray-900 bg-opacity-90 text-white">
+            <h2 class="text-4xl font-bold mb-4 font-orbitron text-red-500">GAME OVER</h2>
+            <p class="text-xl mb-8 font-press-start">Depth Reached: <span id="depthScore">0</span></p>
+            <button id="restartButton" class="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg text-lg font-orbitron transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-redo mr-2"></i> Try Again
+            </button>
+        </div>
+
+        <!-- Pause Screen -->
+        <div id="pauseScreen" class="absolute top-0 left-0 w-full h-full hidden flex-col items-center justify-center bg-gray-900 bg-opacity-90 text-white">
+            <h2 class="text-4xl font-bold mb-8 font-orbitron text-blue-500">PAUSED</h2>
+            <button id="resumeButton" class="px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-orbitron mb-4 transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-play mr-2"></i> Resume
+            </button>
+            <button id="quitButton" class="px-6 py-3 bg-gray-600 hover:bg-gray-700 rounded-lg text-lg font-orbitron transition-all duration-300 transform hover:scale-105">
+                <i class="fas fa-times mr-2"></i> Quit to Menu
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/config.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
